@@ -34,7 +34,9 @@ MongoClient.connect(process.env.dbURL, { useNewUrlParser: true }, (err, client) 
 		res.json({"message": "Welcome to the Toodies API", "returnCode": 200});
 	});
 
-	app.listen(process.env.PORT, () => {
-		console.log('We are live on ' + process.env.PORT);
+    var port = process.env.PORT || 3000;
+
+	app.listen(port, () => {
+		console.log('We are live on ' + port);
 	});
 });
