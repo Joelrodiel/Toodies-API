@@ -32,10 +32,10 @@ function handleCallback(item, err, callback) {
 	}
 }
 
-function getItems(collName, callback) {
+function getItems(collName, limit, skip, callback) {
 	if (!checkInit()) return
 
-	_db.collection(collName).find().toArray( function(err, docs) {
+	_db.collection(collName).find().limit(parseInt(limit)).skip(parseInt(skip)).toArray( function(err, docs) {
 		handleCallback(docs, err, callback);
 	});
 }

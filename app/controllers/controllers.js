@@ -18,7 +18,10 @@ module.exports = {
 
 	getData: function (req, res) {
 
-		db.getItems(collection, function(docs, err) {
+        const limit = req.query.limit || 5;
+        const skip = req.query.skip || 0;
+
+		db.getItems(collection, limit, skip, function(docs, err) {
 			res.send(docs);
 
 			console.log("[ " + moment().format() + " ]", colors.green, "Retrieved items from collection \'" + collection + "\'", colors.reset)
