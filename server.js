@@ -9,7 +9,7 @@ const app          = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-MongoClient.connect(process.env.dbURL, { useNewUrlParser: true }, (err, client) => {
+MongoClient.connect(process.env.dbURL, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
 	if (err) return console.log(err);
 
 	var database = client.db('toodies');
