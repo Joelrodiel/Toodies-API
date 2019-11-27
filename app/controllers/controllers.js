@@ -46,6 +46,7 @@ module.exports = {
             title: req.body.title,
             imgData: req.body.imgData,
             likes: 0,
+            date: new Date(),
         };
 
 		db.postData(collection, data, function(result, err) {
